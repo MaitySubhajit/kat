@@ -1,5 +1,5 @@
 #!/bin/bash
-DATA_PATH=/local_home/dataset/imagenet/
+DATA_PATH=/datasets/ImageNet2012nonpub/
 
 bash ./dist_train.sh 8 $DATA_PATH \
     --model kat_base_swish_patch16_224 \
@@ -21,5 +21,4 @@ bash ./dist_train.sh 8 $DATA_PATH \
     --std 0.229 0.224 0.225 \
     --model-ema \
     --model-ema-decay 0.9999 \
-    --output output/kat_base_swish_patch16_224 \
-    --log-wandb
+    --output output/kat_base_swish_patch16_224
