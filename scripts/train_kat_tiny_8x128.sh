@@ -1,7 +1,7 @@
 #!/bin/bash
 DATA_PATH=/datasets/ImageNet2012nonpub/
 
-bash ./dist_train.sh 8 $DATA_PATH \
+bash ./dist_train.sh 2 $DATA_PATH \
     --model kat_tiny_swish_patch16_224 \
     -b 128 \
     --opt adamw \
