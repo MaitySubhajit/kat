@@ -1,5 +1,5 @@
 #!/bin/bash
-DATA_PATH=/datasets/ImageNet2012nonpub/
+DATA_PATH='/datasets/ImageNet2012nonpub/'
 
 python train.py --data-dir $DATA_PATH \
     --model kat_tiny_swish_patch16_224 \
