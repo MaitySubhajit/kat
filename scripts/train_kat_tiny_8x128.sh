@@ -1,7 +1,7 @@
 #!/bin/bash
 DATA_PATH=/datasets/ImageNet2012nonpub/
 
-bash ./dist_train.sh $DATA_PATH \
+python train.py --data-dir $DATA_PATH \
     --model kat_tiny_swish_patch16_224 \
     -b 128 \
     --opt adamw \
