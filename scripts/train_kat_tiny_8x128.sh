@@ -25,4 +25,5 @@ python train.py --data-dir $DATA_PATH \
     --output output/kat_tiny_swish_patch16_224_c10 \
     --experiment kat_tiny_swish_patch16_224_c10 \
     --dataset cifar10 \
+    --dataset-download \
     --log-wandb
