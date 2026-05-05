@@ -14,10 +14,10 @@
 module purge
 ### source /apps/anaconda/anaconda3/etc/profile.d/conda.sh
 module load gcc
-module load cuda/cuda-12.1
+module load cuda/cuda-12.4
 module load anaconda
 ### source activate video-chatgpt
-conda activate KAT
+conda activate kanvllm
 
 module list
 
