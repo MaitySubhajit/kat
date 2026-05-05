@@ -1,5 +1,6 @@
 #!/bin/bash
-DATA_PATH=/datasets/ImageNet2012nonpub/
+### DATA_PATH=/datasets/ImageNet2012nonpub/
+DATA_PATH=./data/
 
 python train.py --data-dir $DATA_PATH \
     --model kat_tiny_swish_patch16_224 \
@@ -21,4 +22,7 @@ python train.py --data-dir $DATA_PATH \
     --std 0.229 0.224 0.225 \
     --model-ema \
     --model-ema-decay 0.9999 \
-    --output output/kat_tiny_swish_patch16_224
+    --output output/kat_tiny_swish_patch16_224_c10 \
+    --experiment kat_tiny_swish_patch16_224_c10 \
+    --dataset cifar10 \
+    --log-wandb

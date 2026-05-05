@@ -641,23 +641,48 @@ def main():
     else:
         input_img_mode = args.input_img_mode
 
-    dataset_train = create_dataset(
-        args.dataset,
-        root=args.data_dir,
-        split=args.train_split,
-        is_training=True,
-        class_map=args.class_map,
-        download=args.dataset_download,
-        batch_size=args.batch_size,
-        seed=args.seed,
-        repeats=args.epoch_repeats,
-        input_img_mode=input_img_mode,
-        input_key=args.input_key,
-        target_key=args.target_key,
-        num_samples=args.train_num_samples,
-    )
+    if args.dataset == 'cifar10':
+        dataset_train = torchvision.datasets.CIFAR10(
+            root=args.data_dir,
+            train=True,
+            download=args.dataset_download,
+        )
+    elif args.dataset == 'cifar100':
+        dataset_train = torchvision.datasets.CIFAR100(
+            root=args.data_dir,
+            train=True,
+            download=args.dataset_download,
+        )
+    else:
+        dataset_train = create_dataset(
+            args.dataset,
+            root=args.data_dir,
+            split=args.train_split,
+            is_training=True,
+            class_map=args.class_map,
+            download=args.dataset_download,
+            batch_size=args.batch_size,
+            seed=args.seed,
+            repeats=args.epoch_repeats,
+            input_img_mode=input_img_mode,
+            input_key=args.input_key,
+            target_key=args.target_key,
+            num_samples=args.train_num_samples,
+        )
 
-    if args.val_split:
+    if args.dataset == 'cifar10':
+        dataset_eval = torchvision.datasets.CIFAR10(
+            root=args.data_dir,
+            train=False,
+            download=args.dataset_download,
+        )
+    elif args.dataset == 'cifar100':
+        dataset_eval = torchvision.datasets.CIFAR100(
+            root=args.data_dir,
+            train=False,
+            download=args.dataset_download,
+        )
+    elif args.val_split:
         dataset_eval = create_dataset(
             args.dataset,
             root=args.data_dir,
@@ -820,7 +845,8 @@ def main():
 
     if utils.is_primary(args) and args.log_wandb:
         if has_wandb:
-            wandb.init(project="scale-kan", 
+            wandb.init(entity="maitysubhajitUCF",
+                       project="kat", 
                        name=exp_name,
                        config=args)
         else:
