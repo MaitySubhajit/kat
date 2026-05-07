@@ -6,7 +6,7 @@
 #SBATCH --mem-per-cpu=8192
 #SBATCH --gres=gpu:1
 #SBATCH --constraint=gpu80
-#SBATCH --time=6:00:00
+#SBATCH --time=24:00:00
 #SBATCH --error=outs/%J.err
 #SBATCH --output=outs/%J.out
 #SBATCH --job-name=kat_tiny
