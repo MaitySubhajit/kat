@@ -24,7 +24,6 @@ python train.py --data-dir $DATA_PATH \
     --model-ema-decay 0.9999 \
     --output output/kat_tiny_swish_patch16_224_c10 \
     --experiment kat_tiny_swish_patch16_224_c10 \
-    --resume /home/su817307/projects/kat/output/kat_tiny_swish_patch16_224_c10/kat_tiny_swish_patch16_224_c10/last.pth.tar \
     --dataset cifar10 \
     --dataset-download \
     --log-wandb
