@@ -17,11 +17,11 @@ module load gcc
 module load cuda/cuda-12.4
 module load anaconda
 ### source activate video-chatgpt
-conda activate kanvllm
+conda activate kanvlm
 
 module list
 
 ## Run job ##
-cd /home/smaity/projects/kat
+cd /home/su817307/projects/kat
 
 bash scripts/train_kat_tiny_8x128.sh
